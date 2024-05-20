@@ -117,6 +117,12 @@ async def on_ready():
     startprint()
     await bot.change_presence(activity=nextcord.Game(name="Verifies New Members"))
 
+@bot.command()
+async def getkey(ctx):
+    user_id = ctx.author.id
+    key = generate_key(user_id)
+    await ctx.author.send(f"Your unique key is: {key}")
+
 #Bot command
 @bot.command(name=command_name)
 async def start(ctx):
